@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const secrets = require('../../secrets/secrets.js');
-const restricted = require('../../middleware/restricted-middleware.js');
+const secrets = require('../../secrets/secrets');
+const restricted = require('../middleware/restricted-middleware');
 
-const Users = require('./user-model.js');
+const Users = require('./user-model');
 
 
 /**

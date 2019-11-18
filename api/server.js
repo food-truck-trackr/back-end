@@ -3,9 +3,9 @@ const express = require('express');
 const server = express();
 const cors = require('cors');
 const helmet = require('helmet');
-const usersRouter = require('./users/user-router.js');
+const usersRouter = require('./users/user-router.js.js.js');
 
-const restricted = require('../middleware/restricted-middleware.js');
+const restricted = require('../api/middleware/restricted-middleware');
 
 
 server.use(cors());
