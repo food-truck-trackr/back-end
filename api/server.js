@@ -1,25 +1,19 @@
-  
 const express = require('express');
 const server = express();
 const cors = require('cors');
 const helmet = require('helmet');
 const usersRouter = require('./users/user-router.js');
-
-const restricted = require('../api/middleware/restricted-middleware');
+const restricted = require('../middleware/restricted-middleware.js');
 
 
 server.use(cors());
 server.use(helmet());
 server.use(express.json());
 server.use('/api', usersRouter)
-// middleware
-server.use(helmet())
-server.use(cors())
-server.use(express.json())
 
-// routes
+
 server.get('/', () => {
-    console.log('welcome to food truck tracker')
+    console.log('welcome to foodtruck findr')
 })
 
 module.exports = server;
