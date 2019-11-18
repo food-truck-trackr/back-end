@@ -1,11 +1,7 @@
-const server = require('./api/server.js');
+const server = require('./api/server');
 
-const dbPort = process.env.DB_PORT;
+const port = process.env.PORT || 5000;
 
-require('dotenv').config();
-
-const PORT = process.env.PORT || dbPort || 4000;
-
-server.listen(PORT, () => {
-    console.log(`!!! Server is listening on port ${PORT} !!!`)
-})
+server.listen(port, () => {
+    console.log(`IM HERE ON PORT${port}`);
+}); 

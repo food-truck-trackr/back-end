@@ -3,8 +3,8 @@ const router = express.Router();
 const withCatch = require('../../utils/withCatch.js');
 const isEmptyObj = require('../../utils/isEmptyObj.js');
 
-const Jobs = require('./jobs-model.js');
-const Companies = require('../company/company-model.js');
+const Trucks = require('./trucks-model');
+const Operators = require('../operators/operator-model');
 
 /**
 *@api {get} /jobs

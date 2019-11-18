@@ -6,26 +6,6 @@ const restricted = require('../middleware/restricted-middleware');
 
 const Users = require('./user-model');
 
-
-/**
- *@api {post} /register Post User Registration
- *@apiName PostUser
- *@apiGroup Authentication
- * 
- *@apiParam {String} username The username of the new user
-  @apiParam {String} password The password of the new user
- * 
- *@apiSuccess (201) {Object} message welcome message with token
- * 
- *@apiSuccessExample Success-Response:
- * HTTP/1.1 201 OK
- * {
- *  "id": 1
- *  "user": Paul,
- *  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
- * }
- * 
- **/
 router.post('/register', (req, res) => {
   let user = req.body;
   const hash = bcrypt.hashSync(user.password, 10); // 2 ^ n

@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll",
-    "server": "nodemon",
-    "start": "node index.js"
+      "server": "nodemon index.js"
   },
   "repository": {
     "type": "git",
