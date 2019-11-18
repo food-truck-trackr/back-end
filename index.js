@@ -1,8 +1,12 @@
 require('dotenv').config();
 const server = require('./api/server');
 
-const port = process.env.PORT || 5000;
+const dbPort = process.env.DB_PORT;
 
-server.listen(port, () => {
-    console.log(`IM HERE ON PORT ${port}`);
-}); 
+server.use(express.json());
+
+const PORT = process.env.PORT || dbPort || 5000;
+
+server.listen(PORT, () => {
+    console.log(`!!! Server is listening on port ${PORT} !!!`)
+})
