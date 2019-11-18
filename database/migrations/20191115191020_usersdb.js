@@ -10,9 +10,6 @@ exports.up = function(knex) {
         user.string('name')
         user.string('email')
         user.string('role')
-        user.boolean('selected')
-     .notNullable()
-     .defaultTo(false)
  })
 };
 
