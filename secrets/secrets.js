@@ -1,3 +1,3 @@
 module.exports = {
-    jwtSecret: process.env.JWET_SECRET || "I dont wanna give you up, Im never gonna let you down, Never Gonna run around an"
+    jwtSecret: process.env.JWET_SECRET || "I dont wanna give u up, Im never gonna let u down, Never Gonna run around and desert u"
 };

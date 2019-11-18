@@ -4,9 +4,7 @@ const server = express();
 const cors = require('cors');
 const helmet = require('helmet');
 const usersRouter = require('./users/user-router.js');
-const seekerRouter = require('./jobseeker/jobseeker-router.js');
-const jobsRouter = require('./jobs/jobs-router.js');
-const companiesRouter = require('./company/company-router.js');
+
 const restricted = require('../middleware/restricted-middleware.js');
 
 

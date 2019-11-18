@@ -4,7 +4,7 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './data/foodtrucktracker.db3'
+      filename: './database/foodtrucktracker.db3'
     },
     useNullAsDefault: 'true',
     pool: {
