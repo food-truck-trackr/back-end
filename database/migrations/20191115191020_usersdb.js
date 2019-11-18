@@ -10,7 +10,9 @@ exports.up = function(knex) {
         user.string('name')
     user.string('email')
      user.string('location')
-  })
+     user.boolean('selected')
+     .defaultTo(false)
+ })
 };
 
 exports.down = function(knex) {
