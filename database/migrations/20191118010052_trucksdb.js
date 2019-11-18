@@ -7,7 +7,7 @@ exports.up = function(knex) {
           .unique()
           truck.string('password')
           .notNullable()
-          user.string('truck-name')
+          truck.string('truck-name')
           .notNullable()
           truck.string('email')
           truck.string('phone-number')
