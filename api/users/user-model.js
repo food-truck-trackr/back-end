@@ -1,20 +1,28 @@
-const db = require('../../database/db')
+const db = require('../../data/dbConfig.js');
 
 module.exports = {
-    add,
-    find,
+  register,
+  find,
+  findBy,
+  findById,
+};
+
+function find() {
+  return db('users').select('id', 'username', 'password', 'role').where('role', '=', 'diner');
 }
 
-function add(user) {
-    return db('users').insert(user, '*')
-    // sqlite work-around, return added user
-    .then(resp => {
-        if (resp && resp[0]) return find({id: resp[0]})
-    })
-    .catch(err => {throw err})
+function findBy(filter) {
+  return db('users').where(filter);
 }
 
-function find(filter) {
-    if (filter) return db('users').where(filter)
-    else return db('users')
+async function register(user) {
+  const [id] = await db('users').insert(user);
+
+  return findById(id);
+}
+
+function findById(id) {
+  return db('users')
+    .where({ id })
+    .first();
 }

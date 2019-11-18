@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-    return knex.schema.createTable('trucks', tbl => {
+    return knex.schema.createTable('food_trucks', tbl => {
         tbl.increments()
         tbl.timestamp('created_at')
         tbl.string('location_lat')
@@ -11,6 +11,7 @@ exports.up = function(knex) {
           .notNullable()
         tbl.string('food_type')
           .notNullable()
+
         tbl.boolean('selected')
           .defaultTo(false)
           .notNullable()
@@ -26,5 +27,5 @@ exports.up = function(knex) {
   
   exports.down = function(knex) {
     return knex.schema
-      .dropTableIfExists('company')
+      .dropTableIfExists('food_trucks')
   };

@@ -8,7 +8,7 @@ exports.up = function(knex) {
           .notNullable()
         tbl.integer('truck_id')
           .references('id')
-          .inTable('trucks')
+          .inTable('food_trucks')
           .notNullable()
     })
   };
