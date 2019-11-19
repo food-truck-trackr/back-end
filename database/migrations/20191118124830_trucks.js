@@ -13,10 +13,7 @@ exports.up = function(knex) {
           .notNullable()
         tbl.string('next_location_lon')
         tbl.string('next_location_lat')
-        tbl.boolean('selected')
-          .defaultTo(false)
-          
-        tbl.integer('operator_id')
+        tbl.integer('operators_id')
           .unsigned()
           .notNullable()
           .references('id')

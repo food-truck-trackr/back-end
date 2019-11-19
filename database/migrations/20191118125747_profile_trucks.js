@@ -2,7 +2,7 @@
 exports.up = function(knex) {
     return knex.schema.createTable('operator_trucks', tbl => {
         tbl.increments()
-        tbl.integer('operator_id')
+        tbl.integer('operators_id')
           .references('id')
           .inTable('operators')
           .notNullable()
