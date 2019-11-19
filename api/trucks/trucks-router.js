@@ -7,18 +7,18 @@ const Trucks = require('./trucks-model');
 const Operators = require('../operators/operator-model');
 
 /**
-*@api {get} /jobs
-*@apiName GetJobs
-*@apiGroup Jobs
+*@api {get} /trucks
+*@apiName Gettrucks
+*@apiGroup trucks
 **/
 
 router.get('/', async (req, res) => {
 
-    const [err, jobs] = await withCatch(Jobs.getJobs()) 
+    const [err, trucks] = await withCatch(trucks.getTrucks()) 
 
     if (err) res.status(500).json(err)
-    else if (err || isEmptyObj(jobs)) res.status(404).json({ error: "There are no jobs available yet."})
-    else res.status(200).json(jobs)
+    else if (err || isEmptyObj(trucks)) res.status(404).json({ error: "No trucks available."})
+    else res.status(200).json(trucks)
 })
 
 /**

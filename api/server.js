@@ -2,7 +2,7 @@ const knex = require('knex');
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
-const server = express();
+
 
 const usersRouter = require('./users/user-router.js');
 // const dinerRouter = require('./diners/diners-router');
@@ -10,6 +10,7 @@ const usersRouter = require('./users/user-router.js');
 // const operatorsRouter = require('./operators/operator-router');
 const restricted = require('../api/middleware/restricted-middleware');
 
+const server = express();
 
 server.use(cors());
 server.use(helmet());
