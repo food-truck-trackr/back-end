@@ -16,12 +16,12 @@ function create(truck) {
 //returns all trucks  available from all operators
   function getTrucks() {
     return db('trucks')
-      .join('operator', 'operator.id', 'trucks.operator_id')
-      .select('truck.id as truck_id','truck_name', 'location_lat', 'location_lon', 'food_type', '', 'selected', 'created_at', 'operator_id')
+      .join('operators', 'operators.id', 'trucks.operator_id')
+      .select('truck.id as truck_id','truck_name', 'location_lat', 'location_lon', 'food_type', '', 'selected', 'created_at', 'operators_id')
 }
 
 function getById(id) {
-    return db('operator')
+    return db('operators')
       .where({ id })
       .first();
   }
@@ -29,18 +29,18 @@ function getById(id) {
   //get trucks by operator id
 function getTrucksById(operator_id) {
   return db('trucks')
-     .join('operator_profile as operator', 'operator.id', 'trucks.operator_id', 'trucks.id')
+     .join('operators as operator', 'operator.id', 'trucks.operator_id', 'trucks.id')
      .where('trucks.operator_id', '=', operator_id)
 }
 
   function update(id, changes) {
-    return db('operator')
+    return db('operators')
       .where({ id })
       .update(changes)
   }
 
   function remove(id) {
-    return db('operator')
+    return db('operators')
       .where({ id })
       .delete()
   }
