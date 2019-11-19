@@ -1,13 +1,11 @@
 exports.up = function(knex) {
-    return knex.schema.createTable('operator_profile', tbl => {
+    return knex.schema.createTable('operators', tbl => {
         tbl.increments()
-        tbl.string('company_name')
+        tbl.string('operator_name')
           .notNullable()
-        tbl.integer('number_of_trucks')
-          .unsigned()
         })
   };
   
   exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('operator_profile')
+    return knex.schema.dropTableIfExists('operators')
   };

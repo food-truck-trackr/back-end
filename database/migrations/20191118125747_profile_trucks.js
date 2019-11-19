@@ -1,10 +1,10 @@
 
 exports.up = function(knex) {
-    return knex.schema.createTable('profile_trucks', tbl => {
+    return knex.schema.createTable('operator_trucks', tbl => {
         tbl.increments()
-        tbl.integer('operator_profile_id')
+        tbl.integer('operator_id')
           .references('id')
-          .inTable('operator_profile')
+          .inTable('operators')
           .notNullable()
         tbl.integer('truck_id')
           .references('id')
@@ -14,5 +14,5 @@ exports.up = function(knex) {
   };
   
   exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('profile_trucks')
+    return knex.schema.dropTableIfExists('operator_trucks')
   };

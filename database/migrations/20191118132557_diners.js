@@ -5,7 +5,7 @@ exports.up = function(knex) {
         tbl.string('diner_name')
           .notNullable()
         tbl.string('location')
-          .notNullable()      
+               
     })
   };
   

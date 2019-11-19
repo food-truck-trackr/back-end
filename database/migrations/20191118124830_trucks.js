@@ -15,12 +15,12 @@ exports.up = function(knex) {
         tbl.string('next_location_lat')
         tbl.boolean('selected')
           .defaultTo(false)
-          .notNullable()
+          
         tbl.integer('operator_id')
           .unsigned()
           .notNullable()
           .references('id')
-          .inTable('operator_profile')
+          .inTable('operators')
           .onDelete('CASCADE')
           .onUpdate('CASCADE');
     })
