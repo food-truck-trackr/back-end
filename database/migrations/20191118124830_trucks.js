@@ -11,7 +11,8 @@ exports.up = function(knex) {
           .notNullable()
         tbl.string('food_type')
           .notNullable()
-
+        tbl.string('next_location_lon')
+        tbl.string('next_location_lat')
         tbl.boolean('selected')
           .defaultTo(false)
           .notNullable()
