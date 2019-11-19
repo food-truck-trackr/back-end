@@ -3,8 +3,7 @@ const db = require('../../database/db');
 module.exports = {
     create,
     get,
-    getJobsById,
-    getJobseekersByJobID,
+    getTrucksById,
     update,
     getById,
     remove
@@ -26,7 +25,7 @@ function getById(id) {
   }
 
 
-//get jobs by company id
+//get trucks by operator id
 function getTrucksById(operator_id) {
      return db('trucks')
         .join('operators as operator', 'operator.id', 'trucks.operator_id', )
