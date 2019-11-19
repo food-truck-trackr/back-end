@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const withCatch = require('../../utils/withCatch.js');
-const isEmptyObj = require('../../utils/isEmptyObj.js');
+const withCatch = require('../../utils/withCatch');
+const isEmptyObj = require('../../utils/isEmptyObj');
 const Diners = require('./diners-model');
-const checkRole = require('../../middleware/check-department.js');
+const checkRole = require('../middleware/checkrole');
 
 
 /**
