@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-    return knex.schema.createTable('food_trucks', tbl => {
+    return knex.schema.createTable('trucks', tbl => {
         tbl.increments()
         tbl.timestamp('created_at')
         tbl.string('location_lat')
@@ -27,5 +27,5 @@ exports.up = function(knex) {
   
   exports.down = function(knex) {
     return knex.schema
-      .dropTableIfExists('food_trucks')
+      .dropTableIfExists('trucks')
   };
