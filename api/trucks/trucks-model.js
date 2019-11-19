@@ -17,7 +17,7 @@ function create(truck) {
   function getTrucks() {
     return db('trucks')
       .join('operator', 'operator.id', 'trucks.operator_id')
-      .select('job.id as job_id','company_name', 'location', 'position', 'description', 'pay_range', 'selected', 'created_at', 'company_id')
+      .select('truck.id as truck_id','com_name', 'location', 'position', 'description', 'pay_range', 'selected', 'created_at', 'company_id')
 }
 
 function getById(id) {
@@ -27,7 +27,7 @@ function getById(id) {
   }
 
   //get jobs by company id
-function getJobsById(company_id) {
+function getTrucksById(company_id) {
   return db('company as jobs')
      .join('company_profile as company', 'company.id', 'jobs.company_id', 'jobs.id')
      .where('jobs.company_id', '=', company_id)
