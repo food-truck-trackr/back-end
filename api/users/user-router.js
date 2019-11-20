@@ -37,6 +37,7 @@ router.post('/login', (req, res) => {
           id: user.id,
           user: user.username,
           name: user.name,
+          role: user.role,
           token:token
         });
       } else {

@@ -4,7 +4,7 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('trucks').insert([
-        {truck_name: 'Chipotle in a truck' , location: 'Austin, TX'},
+        {truck_name: 'Chipotle in a truck' , location_lat: 'Austin, TX', location},
         {truck_name: 'FiveGuys But in  truck' , location: 'Carrollton, TX'},
         {truck_name: 'NordHaus Pickled Fish truck' , location: 'Rockford, IL'},
         {truck_name: 'Crazy Fuzio Food' , location: 'St. Paul, MN'},
