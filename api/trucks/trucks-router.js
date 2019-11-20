@@ -37,6 +37,8 @@ router.get('/:operators_id', async (req, res) => {
 
 })
 
+
+
 /**
 *@api {post} /trucks
 *@apiName PostTrucks

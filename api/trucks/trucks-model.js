@@ -22,7 +22,8 @@ function create(truck) {
 function getById(id) {
     return db('trucks')
       .where({ id })
-      .first();
+      .first()
+      .select('trucks.id','truck_name', 'location_lat', 'location_lon','departing_time' ,'food_type', 'rating', 'created_at', 'operators_id', 'next_location_lat','next_location_lon','arrival_time','arrival_time', )
   }
 
   // get trucks by operator id
@@ -33,13 +34,13 @@ function getById(operator_id) {
 }
 
   function update(id, changes) {
-    return db('operators')
+    return db('trucks')
       .where({ id })
       .update(changes)
   }
 
   function remove(id) {
-    return db('operators')
+    return db('trucks')
       .where({ id })
       .delete()
   }
