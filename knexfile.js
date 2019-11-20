@@ -46,4 +46,4 @@ module.exports = {
       directory: './data/seeds'
     },
   }
-}[ process.env.NODE_ENV || 'development' ];
+};
