@@ -13,7 +13,7 @@ const restricted = require('../api/middleware/restricted-middleware');
 server.use(cors());
 server.use(helmet());
 server.use(express.json());
-server.use('/api/', usersRouter)
+server.use('/api', usersRouter)
 // server.use('/api/diners', restricted, dinerRouter)
 server.use('/api/trucks', trucksRouter)
 server.use('/api/operators',  operatorsRouter)
