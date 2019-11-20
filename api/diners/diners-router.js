@@ -3,7 +3,7 @@ const router = express.Router();
 const withCatch = require('../../utils/withCatch');
 const isEmptyObj = require('../../utils/isEmptyObj');
 const Diners = require('./diners-model');
-const checkRole = require('../middleware/checkRole');
+// const checkRole = require('../middleware/checkRole');
 
 
 /**
@@ -26,14 +26,14 @@ router.post('/', async (req, res) => {
 *@apiGroup Diners
 **/
 
-router.get('/', checkRole("operator"), async (req, res) => {
+// router.get('/', checkRole("diner"), async (req, res) => {
 
-    const [err, diners] = await withCatch (Diners.get())
+//     const [err, diners] = await withCatch (Diners.get())
 
-    if (err) res.status(500).json(err)
-    else if (err || isEmptyObj(diners)) res.status(404).json({ error: "There are no diners available yet."})
-    else res.status(200).json(diners)
-})
+//     if (err) res.status(500).json(err)
+//     else if (err || isEmptyObj(diners)) res.status(404).json({ error: "There are no diners available yet."})
+//     else res.status(200).json(diners)
+// })
 
 router.get('/:diner_id', async (req, res) => {
 
