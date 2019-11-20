@@ -9,12 +9,10 @@ module.exports = {
 }
 
 function create(diner) {
-    return db('diners')
+  return db('diners')
       .insert(diner)
-      .then(ids => {
-        return getById(ids[0]);
-      });
-  }
+}
+
 
 function get() {
     return db('diners')

@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
 *@apiName GetOperators
 *@apiGroup Operators
 **/
-// router.get('/', checkRole("diner"), async (req, res) => {
+// router.get('/', checkRole("operator"), async (req, res) => {
 
 //     const [err, operators] = await withCatch (Operators.get())
 

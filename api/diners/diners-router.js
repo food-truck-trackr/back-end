@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
    const [err, diners] = await withCatch (Diners.create(req.body))
 
    if (err) res.status(500).json(err)
-   else res.status(201).json({ created: `following Diner with id of ${diners.id}`, diners: req.body})
+   else res.status(201).json({ created: `following Diner with id of ${diners}`, diners_info: req.body})
 })
 
 /**
@@ -25,6 +25,14 @@ router.post('/', async (req, res) => {
 *@apiName GetDiners
 *@apiGroup Diners
 **/
+router.get('/', async (req, res) => {
+
+    const [err, diners] = await withCatch(Diners.get())
+
+        if (err) res.status(500).json(err)
+        res.status(200).json(diners)
+    
+})
 
 // router.get('/', checkRole("diner"), async (req, res) => {
 
@@ -35,13 +43,13 @@ router.post('/', async (req, res) => {
 //     else res.status(200).json(diners)
 // })
 
-router.get('/:diner_id', async (req, res) => {
+router.get('/:diners_id', async (req, res) => {
 
-    const [err, diner] = await withCatch(Diners.getById(req.params.diner_id))
+    const [err, diners] = await withCatch(Diners.getById(req.params.diners_id))
         
         if (err) res.status(500).json(err)
-        else if (err || isEmptyObj(Diner)) res.status(404).json({ error: "There is no Diner with this id"})
-        else res.status(200).json(Diner)
+        else if (err || isEmptyObj(diners)) res.status(404).json({ error: "There is no Diner with this id"})
+        else res.status(200).json(diners)
 
 })
 

@@ -16,7 +16,7 @@ server.use(express.json());
 server.use('/api/', usersRouter)
 // server.use('/api/diners', restricted, dinerRouter)
 server.use('/api/trucks', trucksRouter)
-server.use('/api/operators', restricted, operatorsRouter)
+server.use('/api/operators',  operatorsRouter)
 // server.use('/api/docs', express.static('./docs'))
 
 
