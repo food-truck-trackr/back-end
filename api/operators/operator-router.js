@@ -51,7 +51,7 @@ router.get('/', async (req, res) => {
 * @apiParam {Number} id coperator's unique ID.
 **/
 
-router.get('/:operator_id', async (req, res) => {
+router.get('/:operators_id', async (req, res) => {
 
     const [err, operator] = await withCatch(Operators.getById(req.params.operator_id))
         
