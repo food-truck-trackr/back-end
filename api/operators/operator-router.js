@@ -2,9 +2,8 @@ const express = require('express');
 const router = express.Router();
 const withCatch = require('../../utils/withCatch.js');
 const isEmptyObj = require('../../utils/isEmptyObj.js');
-
 const Operators = require('./operator-model');
-
+const checkRole = require('../middleware/checkRole');
 /**
 *@api {post} / operators
 *@apiName PostOperators
@@ -25,6 +24,16 @@ router.post('/', async (req, res) => {
 *@apiName GetOperators
 *@apiGroup Operators
 **/
+// router.get('/', checkRole("diner"), async (req, res) => {
+
+//     const [err, operators] = await withCatch (Operators.get())
+
+//     if (err) res.status(500).json(err)
+//     else if (err || isEmptyObj(operators)) res.status(404).json({ error: "There are no operators available yet."})
+//     else res.status(200).json(operators)
+// })
+
+
 
 router.get('/', async (req, res) => {
 
@@ -59,7 +68,7 @@ router.get('/:operator_id', async (req, res) => {
 **/
 router.get('/:operator_id/trucks/:truck_id', async (req, res) => {
     
-    const [err, truck] = await withCatch(Operators.getTrucksById(req.params.truck_id)) 
+    const [err, truck] = await withCatch(Operators.getTrucksById(req.params.owner_id)) 
 
     if (err) res.status(500).json(err)
     else if (err || isEmptyObj(truck)) res.status(404).json({ error: "There are no trucks associated with this id"})

@@ -4,12 +4,8 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('trucks').insert([
-        {truck_name: 'Chipotle in a truck' , location_lat: 'Austin, TX', location},
-        {truck_name: 'FiveGuys But in  truck' , location: 'Carrollton, TX'},
-        {truck_name: 'NordHaus Pickled Fish truck' , location: 'Rockford, IL'},
-        {truck_name: 'Crazy Fuzio Food' , location: 'St. Paul, MN'},
-        {truck_name: 'Bills BBQ Truck' , location: 'Sicklerville, NJ'},
-        {truck_name: 'Food on wheels in a truck' , location: 'Bee Cave, TX'}
+        {truck_name: 'Chipotle in a truck' , location_lat: 14256854 , location_lon: 1245638, food_type:'tex-mex', operators_id:1, departing_time: '10:30'},
+       
       ]);
     });
 };

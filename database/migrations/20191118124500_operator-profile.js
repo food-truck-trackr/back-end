@@ -3,13 +3,14 @@ exports.up = function(knex) {
         tbl.increments()
         tbl.string('operator_name')
           .notNullable()
-          tbl.integer('user_id')
+         tbl.integer('user_id')
           .unsigned()
           .notNullable()
           .references('id')
           .inTable('users')
           .onDelete('CASCADE')
           .onUpdate('CASCADE');
+     
     })
   };
   
