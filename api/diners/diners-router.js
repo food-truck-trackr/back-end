@@ -3,7 +3,7 @@ const router = express.Router();
 const withCatch = require('../../utils/withCatch');
 const isEmptyObj = require('../../utils/isEmptyObj');
 const Diners = require('./diners-model');
-const checkRole = require('../middleware/checkrole');
+const checkRole = require('../middleware/checkRole');
 
 
 /**
@@ -40,7 +40,7 @@ router.get('/:diner_id', async (req, res) => {
     const [err, diner] = await withCatch(Diners.getById(req.params.diner_id))
         
         if (err) res.status(500).json(err)
-        else if (err || isEmptyObj(Diner)) res.status(404).json({ error: "There is no Diner by this id"})
+        else if (err || isEmptyObj(Diner)) res.status(404).json({ error: "There is no Diner with this id"})
         else res.status(200).json(Diner)
 
 })
