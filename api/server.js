@@ -9,7 +9,7 @@ const usersRouter = require('./users/user-router.js');
 const dinerRouter = require('./diners/diners-router');
 const trucksRouter = require('./trucks/trucks-router');
 const operatorsRouter = require('./operators/operator-router');
-const restricted = require('../api/middleware/restricted-middleware');
+// const restricted = require('../api/middleware/restricted-middleware');
 
 const server = express();
 
@@ -17,9 +17,9 @@ server.use(cors());
 server.use(helmet());
 server.use(express.json());
 server.use('/api', usersRouter)
-server.use('/api/', restricted, dinerRouter)
+server.use('/api/',  dinerRouter)
 server.use('/api/trucks', trucksRouter)
-server.use('/api/operators', restricted, operatorsRouter)
+server.use('/api/operators',operatorsRouter)
 // server.use('/api/docs', express.static('./docs'))
 
 
