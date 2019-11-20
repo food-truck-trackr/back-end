@@ -26,10 +26,10 @@ function getById(id) {
 
 
 //get trucks by operator id
-function getTrucksById(operator_id) {
+function getTrucksById(operators_id) {
      return db('trucks')
-        .join('operators as operator', 'operator.id', 'trucks.operator_id', )
-        .where('trucks.operator_id', '=', operator_id)
+        .join('operators ', 'operators.id', 'trucks.operators_id', )
+        .where('trucks.operators_id', '=', operators_id)
 }
 
 function update(id, changes) {

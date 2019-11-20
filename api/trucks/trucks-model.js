@@ -25,7 +25,7 @@ function getById(id) {
       .first();
   }
 
-  //get trucks by operator id
+  // get trucks by operator id
 function getById(operator_id) {
   return db('trucks')
      .join('operators as operator', 'operator.id', 'trucks.operator_id', 'trucks.id')

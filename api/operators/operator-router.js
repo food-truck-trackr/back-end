@@ -66,9 +66,9 @@ router.get('/:operator_id', async (req, res) => {
 *@apiGroup operators
 * @apiParam {Number} id trucks's unique ID.
 **/
-router.get('/:operator_id/trucks/:truck_id', async (req, res) => {
+router.get('/:operator_id/trucks/:operators_id', async (req, res) => {
     
-    const [err, truck] = await withCatch(Operators.getTrucksById(req.params.owner_id)) 
+    const [err, truck] = await withCatch(Trucks.getTrucksById(req.params.operators_id)) 
 
     if (err) res.status(500).json(err)
     else if (err || isEmptyObj(truck)) res.status(404).json({ error: "There are no trucks associated with this id"})
