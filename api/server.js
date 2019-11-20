@@ -6,7 +6,7 @@ const helmet = require('helmet');
 
 
 const usersRouter = require('./users/user-router.js');
-// const dinerRouter = require('./diners/diners-router');
+const dinerRouter = require('./diners/diners-router');
 const trucksRouter = require('./trucks/trucks-router');
 const operatorsRouter = require('./operators/operator-router');
 const restricted = require('../api/middleware/restricted-middleware');
