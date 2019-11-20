@@ -24,25 +24,25 @@ router.post('/', async (req, res) => {
 *@apiName GetOperators
 *@apiGroup Operators
 **/
-router.get('/', checkRole("diner"), async (req, res) => {
+// router.get('/', checkRole("diner"), async (req, res) => {
 
-    const [err, operators] = await withCatch (Operators.get())
+//     const [err, operators] = await withCatch (Operators.get())
 
-    if (err) res.status(500).json(err)
-    else if (err || isEmptyObj(operators)) res.status(404).json({ error: "There are no operators available yet."})
-    else res.status(200).json(operators)
-})
-
-
-
-// router.get('/', async (req, res) => {
-
-//     const [err, operators] = await withCatch(Operators.get())
-
-//         if (err) res.status(500).json(err)
-//         res.status(200).json(operators)
-    
+//     if (err) res.status(500).json(err)
+//     else if (err || isEmptyObj(operators)) res.status(404).json({ error: "There are no operators available yet."})
+//     else res.status(200).json(operators)
 // })
+
+
+
+router.get('/', async (req, res) => {
+
+    const [err, operators] = await withCatch(Operators.get())
+
+        if (err) res.status(500).json(err)
+        res.status(200).json(operators)
+    
+})
 
 /**
 *@api {get} /operator/:operator_id
@@ -68,7 +68,7 @@ router.get('/:operator_id', async (req, res) => {
 **/
 router.get('/:operator_id/trucks/:truck_id', async (req, res) => {
     
-    const [err, truck] = await withCatch(Operators.getTrucksById(req.params.truck_id)) 
+    const [err, truck] = await withCatch(Operators.getTrucksById(req.params.owner_id)) 
 
     if (err) res.status(500).json(err)
     else if (err || isEmptyObj(truck)) res.status(404).json({ error: "There are no trucks associated with this id"})

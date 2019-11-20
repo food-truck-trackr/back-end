@@ -27,7 +27,7 @@ function getById(id) {
   }
 
   //get trucks by operator id
-function getTrucksById(operator_id) {
+function getById(operator_id) {
   return db('trucks')
      .join('operators as operator', 'operator.id', 'trucks.operator_id', 'trucks.id')
      .where('trucks.operator_id', '=', operator_id)
