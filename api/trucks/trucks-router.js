@@ -27,9 +27,9 @@ router.get('/', async (req, res) => {
 *@apiGroup Jobs
 **/
 
-router.get('/:operator_id', async (req, res) => {
+router.get('/:Trucks_id', async (req, res) => {
 
-    const [err, trucks] = await withCatch(Operators.getTrucksById(req.params.Operators_id))
+    const [err, trucks] = await withCatch(Trucks.getTrucksById(req.params.operators_id))
 
     if (err) res.status(500).json(err)
     else if (err || isEmptyObj(trucks)) res.status(404).json({ error: "There are no trucks registered with this Operator yet."})

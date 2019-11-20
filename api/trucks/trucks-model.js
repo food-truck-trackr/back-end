@@ -16,7 +16,6 @@ function create(truck) {
 //returns all trucks  available from all operators
   function getTrucks() {
     return db('trucks')
-      .join( 'operators', 'operators_id','operators.trucks_id')
       .select('trucks.id','truck_name', 'location_lat', 'location_lon', 'food_type', 'next_location_lat','next_location_lon', 'created_at', 'operators_id')
 }
 
