@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-    return knex.schema.createTable('food_trucks', tbl => {
+    return knex.schema.createTable('trucks', tbl => {
         tbl.increments()
         tbl.timestamp('created_at')
         tbl.string('location_lat')
@@ -11,15 +11,13 @@ exports.up = function(knex) {
           .notNullable()
         tbl.string('food_type')
           .notNullable()
-
-        tbl.boolean('selected')
-          .defaultTo(false)
-          .notNullable()
-        tbl.integer('operator_id')
+        tbl.string('next_location_lon')
+        tbl.string('next_location_lat')
+        tbl.integer('operators_id')
           .unsigned()
           .notNullable()
           .references('id')
-          .inTable('operator_profile')
+          .inTable('operators')
           .onDelete('CASCADE')
           .onUpdate('CASCADE');
     })
@@ -27,5 +25,5 @@ exports.up = function(knex) {
   
   exports.down = function(knex) {
     return knex.schema
-      .dropTableIfExists('food_trucks')
+      .dropTableIfExists('trucks')
   };

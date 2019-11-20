@@ -16,31 +16,31 @@ function create(truck) {
 //returns all trucks  available from all operators
   function getTrucks() {
     return db('trucks')
-      .join('operator', 'operator.id', 'trucks.operator_id')
-      .select('job.id as job_id','company_name', 'location', 'position', 'description', 'pay_range', 'selected', 'created_at', 'company_id')
+      .join('operators', 'operators.id', 'trucks.operator_id')
+      .select('truck.id as truck_id','truck_name', 'location_lat', 'location_lon', 'food_type', '', 'selected', 'created_at', 'operators_id')
 }
 
 function getById(id) {
-    return db('company')
+    return db('operators')
       .where({ id })
       .first();
   }
 
-  //get jobs by company id
-function getJobsById(company_id) {
-  return db('company as jobs')
-     .join('company_profile as company', 'company.id', 'jobs.company_id', 'jobs.id')
-     .where('jobs.company_id', '=', company_id)
+  //get trucks by operator id
+function getTrucksById(operator_id) {
+  return db('trucks')
+     .join('operators as operator', 'operator.id', 'trucks.operator_id', 'trucks.id')
+     .where('trucks.operator_id', '=', operator_id)
 }
 
   function update(id, changes) {
-    return db('company')
+    return db('operators')
       .where({ id })
       .update(changes)
   }
 
   function remove(id) {
-    return db('company')
+    return db('operators')
       .where({ id })
       .delete()
   }

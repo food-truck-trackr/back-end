@@ -36,6 +36,8 @@ router.post('/login', (req, res) => {
         res.status(200).json({
           id: user.id,
           user: user.username,
+          name: user.name,
+          role: user.role,
           token:token
         });
       } else {
