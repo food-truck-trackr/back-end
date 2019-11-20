@@ -1,7 +1,7 @@
-const knex = require('knex');
 const express = require('express');
+const server = express();
 const cors = require('cors');
-const helmet = require('helmet');
+const helmet = require('helmet')
 
 
 const usersRouter = require('./users/user-router.js');
