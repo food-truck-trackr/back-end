@@ -9,19 +9,19 @@ module.exports = {
 }
 
 function create(truck) {
-  return db('operators')//trucks + operators = trucks to operator
+  return db('trucks')//trucks + operators = trucks to operator
     .insert(truck)
 }
 
 //returns all trucks  available from all operators
   function getTrucks() {
     return db('trucks')
-      .join('operators', 'operators.id', 'trucks.operator_id')
-      .select('truck.id as truck_id','truck_name', 'location_lat', 'location_lon', 'food_type', '', 'selected', 'created_at', 'operators_id')
+      .join( 'operators', 'operators_id','operators.trucks_id')
+      .select('trucks_id','truck_name', 'location_lat', 'location_lon', 'food_type', 'next_location_lat','next_location_lon', 'created_at', 'operators_id')
 }
 
 function getById(id) {
-    return db('operators')
+    return db('trucks')
       .where({ id })
       .first();
   }

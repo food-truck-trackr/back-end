@@ -14,7 +14,7 @@ const Operators = require('../operators/operator-model');
 
 router.get('/', async (req, res) => {
 
-    const [err, trucks] = await withCatch(trucks.getTrucks()) 
+    const [err, trucks] = await withCatch(Trucks.getTrucks()) 
 
     if (err) res.status(500).json(err)
     else if (err || isEmptyObj(trucks)) res.status(404).json({ error: "No trucks available."})
@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:operator_id', async (req, res) => {
 
-    const [err, trucks] = await withCatch(Operators.getTrucksById(req.params.Operator_id))
+    const [err, trucks] = await withCatch(Operators.getTrucksById(req.params.Operators_id))
 
     if (err) res.status(500).json(err)
     else if (err || isEmptyObj(trucks)) res.status(404).json({ error: "There are no trucks registered with this Operator yet."})
@@ -45,10 +45,10 @@ router.get('/:operator_id', async (req, res) => {
 
 router.post('/', async (req, res) => {
 
-    const [err, trucks] = await withCatch(trucks.create(req.body))
+    const [err, trucks] = await withCatch(Trucks.create(req.body))
 
     if (err) res.status(500).json(err)
-    else res.status(201).json({ created: `following truck with id of ${job}`, job: req.body})
+    else res.status(201).json({ created: `following truck with id of ${trucks}`, trucks: req.body})
 })
 
 /**
