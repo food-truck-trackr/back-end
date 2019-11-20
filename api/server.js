@@ -7,7 +7,7 @@ const helmet = require('helmet');
 
 const usersRouter = require('./users/user-router.js');
 // const dinerRouter = require('./diners/diners-router');
-const trucksRouter = require('./trucks/trucks-router');
+// const trucksRouter = require('./trucks/trucks-router');
 const operatorsRouter = require('./operators/operator-router');
 const restricted = require('../api/middleware/restricted-middleware');
 
@@ -18,7 +18,7 @@ server.use(helmet());
 server.use(express.json());
 server.use('/api', usersRouter)
 // server.use('/api/', restricted, dinerRouter)
-server.use('/api/trucks', trucksRouter)
+// server.use('/api/trucks', trucksRouter)
 server.use('/api/operators', operatorsRouter)
 // server.use('/api/docs', express.static('./docs'))
 
