@@ -1,4 +1,4 @@
-const knex = require('knex')('production')
+const knex = require('knex')('development')
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
