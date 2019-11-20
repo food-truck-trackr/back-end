@@ -3,7 +3,7 @@ const router = express.Router();
 const withCatch = require('../../utils/withCatch.js');
 const isEmptyObj = require('../../utils/isEmptyObj.js');
 const Operators = require('./operator-model');
-const checkRole = require('../middleware/checkRole');
+// const checkRole = require('../middleware/checkRole');
 /**
 *@api {post} / operators
 *@apiName PostOperators
