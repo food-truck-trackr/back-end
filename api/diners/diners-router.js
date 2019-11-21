@@ -25,6 +25,16 @@ router.post('/', async (req, res) => {
 *@apiName GetDiners
 *@apiGroup Diners
 **/
+// router.get('/', checkRole("operator"), async (req, res) => {
+
+//     const [err, diners] = await withCatch (Diners.get())
+
+//     if (err) res.status(500).json(err)
+//     else if (err || isEmptyObj(diners)) res.status(404).json({ error: "There are no diners available yet."})
+//     else res.status(200).json(diners)
+// })
+
+
 router.get('/', async (req, res) => {
 
     const [err, diners] = await withCatch(Diners.get())
@@ -34,14 +44,6 @@ router.get('/', async (req, res) => {
     
 })
 
-// router.get('/', checkRole("diner"), async (req, res) => {
-
-//     const [err, diners] = await withCatch (Diners.get())
-
-//     if (err) res.status(500).json(err)
-//     else if (err || isEmptyObj(diners)) res.status(404).json({ error: "There are no diners available yet."})
-//     else res.status(200).json(diners)
-// })
 
 router.get('/:diners_id', async (req, res) => {
 
@@ -85,3 +87,5 @@ router.delete('/:id', async (req, res) => {
     if (err) res.status(500).json(err)
     else res.status(200).json({ deleted: `${count} Diner with the id of ${req.params.id}`})
 })
+
+module.exports = router;

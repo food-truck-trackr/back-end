@@ -1,32 +1,17 @@
 
 exports.up = function(knex) {
-  return knex.schema.createTable('trucks', tbl => {
-      tbl.increments()
-      tbl.timestamp('created_at')
-      tbl.string('location_lat')
-        .notNullable()
-      tbl.string('location_lon')
-      .notNullable()
-      tbl.string('truck_name')
-        .notNullable()
-      tbl.time('departing_time')
-      tbl.time('arrival_time')
-      tbl.string('next_location_lat')
-      tbl.string('next_location_lon')
-      tbl.string('food_type')
-        .notNullable()
-      tbl.integer('rating')
-      tbl.integer('operators_id')
+    return knex.schema.createTable('diners', tbl => {
+        tbl.increments()
+        tbl.integer('user_id')
         .unsigned()
         .notNullable()
         .references('id')
-        .inTable('operators')
+        .inTable('users')
         .onDelete('CASCADE')
         .onUpdate('CASCADE');
   })
-};
-
-exports.down = function(knex) {
-  return knex.schema
-    .dropTableIfExists('trucks')
-};
+  };
+  
+  exports.down = function(knex) {
+    return knex.schema.dropTableIfExists('diners')
+  };
