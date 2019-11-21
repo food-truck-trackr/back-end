@@ -1,19 +1,20 @@
-exports.up = function(knex) {
-    return knex.schema.createTable('operators', tbl => {
+
+ exports.down = function(knex) {
+    return knex.schema.dropTableIfExists('diners')
+  };
+  exports.up = function(knex) {
+    return knex.schema.createTable('diners', tbl => {
         tbl.increments()
-        tbl.string('operator_name')
-          .notNullable()
-         tbl.integer('user_id')
-          .unsigned()
-          .notNullable()
-          .references('id')
-          .inTable('users')
-          .onDelete('CASCADE')
-          .onUpdate('CASCADE');
-     
-    })
+        tbl.integer('user_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('users')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE');
+  })
   };
   
   exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('operators')
+    return knex.schema.dropTableIfExists('diners')
   };
