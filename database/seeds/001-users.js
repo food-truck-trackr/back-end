@@ -12,7 +12,7 @@ exports.seed = function(knex) {
         {username:'admin4',password:'password', name:'charlie', email:'charlie@gmail.com', role:'diner'},
         {username:'admin5',password:'password', name:'jill', email:'jill@gmail.com', role:'diner'},
         {username:'admin6',password:'password', name:'justin', email:'justin2@gmail.com', role:'diner'},
-        {username:'admin7',password:'password', name:'yohana', email:'yohana@gmail.com', role:'diner'},
+        {username:'admin7',password:'password', name:'yohana', email:'yohana@gmail.com', role:'operator'}
 
       ]);
     });
