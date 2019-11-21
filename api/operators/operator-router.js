@@ -3,7 +3,7 @@ const router = express.Router();
 const withCatch = require('../../utils/withCatch.js');
 const isEmptyObj = require('../../utils/isEmptyObj.js');
 const Operators = require('./operator-model');
-// const checkRole = require('../middleware/checkRole');
+const checkRole = require('../middleware/checkRole');
 /**
 *@api {post} / operators
 *@apiName PostOperators
@@ -24,14 +24,14 @@ router.post('/', async (req, res) => {
 *@apiName GetOperators
 *@apiGroup Operators
 **/
-// router.get('/', checkRole("diner"), async (req, res) => {
+router.get('/', checkRole("diner"), async (req, res) => {
 
-//     const [err, operators] = await withCatch (Operators.get())
+    const [err, operators] = await withCatch (Operators.get())
 
-//     if (err) res.status(500).json(err)
-//     else if (err || isEmptyObj(operators)) res.status(404).json({ error: "There are no operators available yet."})
-//     else res.status(200).json(operators)
-// })
+    if (err) res.status(500).json(err)
+    else if (err || isEmptyObj(operators)) res.status(404).json({ error: "There are no operators available yet."})
+    else res.status(200).json(operators)
+})
 
 
 
