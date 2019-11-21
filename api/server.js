@@ -13,10 +13,10 @@ const usersRouter = require('./users/user-router');
 server.use(cors());
 server.use(helmet());
 server.use(express.json());
-server.use('/api/', usersRouter)
-// server.use('/api/diners', restricted, dinerRouter)
-// server.use('/api/trucks', trucksRouter)
-// server.use('/api/operators',  operatorsRouter)
+server.use('/api', usersRouter)
+// server.use('/api/diners', restricted, dinerRouter);
+// server.use('/api/trucks', trucksRouter);
+// server.use('/api/operators',  operatorsRouter);
 // server.use('/api/docs', express.static('./docs'))
 
 
