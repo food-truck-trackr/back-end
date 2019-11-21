@@ -2,7 +2,6 @@
   "name": "back-end",
   "version": "1.0.0",
   "description": "",
-
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -28,12 +27,13 @@
     "helmet": "^3.21.2",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.20.2",
+    "pg": "^7.14.0",
     "sqlite3": "^4.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
   },
   "engines": {
-    "node":"^12.13.0"
+    "node": "^12.13.0"
   }
 }
