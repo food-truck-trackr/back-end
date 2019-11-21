@@ -7,7 +7,7 @@ const usersRouter = require('./users/user-router');
 
 const trucksRouter = require('./trucks/trucks-router');
 const operatorsRouter = require('./operators/operator-router');
-// const restricted = require('../api/middleware/restricted-middleware');
+const restricted = require('../api/middleware/restricted-middleware');
 const server = express();
 
 server.use(cors());
