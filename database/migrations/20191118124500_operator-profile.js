@@ -1,9 +1,9 @@
 exports.up = function(knex) {
-    return knex.schema.createTable('operators', tbl => {
-        tbl.increments()
-        tbl.string('operator_name')
+    return knex.schema.createTable('operators', operators => {
+      operators.increments()
+      operators.string('operator_name')
           .notNullable()
-         tbl.integer('user_id')
+      operators.integer('user_id')
           .unsigned()
           .notNullable()
           .references('id')
