@@ -6,4 +6,4 @@ const knexConfig = require('../knexfile')[environment]
 
 
 
-module.exports = require(knex)(knexConfig);
+module.exports = require('knex')(knexConfig);
